@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list/itens.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -44,13 +47,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-List<String> list = new List<String>();
 
-TextEditingController _title = TextEditingController();
+
+  TextEditingController _title = TextEditingController();
 
   void _add() {
     setState(() {
-      list.add(_title.text);
+
+      Item item = new Item(_title.text);
+       list = [
+        Item(
+          title: _title.text,
+        )];
+
     });
   }
 
@@ -72,7 +81,7 @@ TextEditingController _title = TextEditingController();
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+      body: Center (
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -97,20 +106,22 @@ TextEditingController _title = TextEditingController();
               decoration: InputDecoration(
                   labelText: "Title:",
                   labelStyle: TextStyle(color: Colors.deepPurple)),
-                controller: _title,
+              controller: _title,
             ),
 
-
-
+            RaisedButton(
+              padding: const EdgeInsets.all(8.0),
+              textColor: Colors.white,
+              color: Colors.blue,
+              onPressed: _add,
+              child: new Text("aaaaaa"),
+            ),
           ],
 
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _add,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
 }
+
