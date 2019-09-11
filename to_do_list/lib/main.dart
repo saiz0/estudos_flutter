@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_list/itens.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,8 +25,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -47,27 +44,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
-  TextEditingController _title = TextEditingController();
+  final List<String> list = <String>[];
+  TextEditingController _desc = TextEditingController();
 
   void _add() {
     setState(() {
-
-      Item item = new Item(_title.text);
-       list = [
-        Item(
-          title: _title.text,
-        )];
-
+      list.add(_desc.toString());
     });
   }
 
-
   @override
-
   Widget build(BuildContext context) {
-
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -75,13 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center (
+      body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -100,28 +86,18 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           children: <Widget>[
-
-            TextFormField(
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                  labelText: "Title:",
-                  labelStyle: TextStyle(color: Colors.deepPurple)),
-              controller: _title,
+            Container(
+              width: double.maxFinite,
+              height: 500.0,
+              child: ListView(
+                padding: EdgeInsets.all(8.0),
+                children: list.map((data) => Text(data)).toList(),
+              ),
             ),
 
-            RaisedButton(
-              padding: const EdgeInsets.all(8.0),
-              textColor: Colors.white,
-              color: Colors.blue,
-              onPressed: _add,
-              child: new Text("aaaaaa"),
-            ),
           ],
-
         ),
       ),
     );
   }
-
 }
-

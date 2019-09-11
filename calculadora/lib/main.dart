@@ -73,9 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: () =>
                     FocusScope.of(context).requestFocus(new FocusNode()),
               )),
-          SizedBox(height: 60.0),
+          SizedBox(height: 50),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            
             children: <Widget>[
               botao(
                 '7',
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               botao('4', Colors.lightGreenAccent),
               botao('5', Colors.lightGreenAccent),
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               botao('1', Colors.lightGreenAccent),
               botao('2', Colors.lightGreenAccent),
@@ -120,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               botao('', Colors.lightGreenAccent),
               botao('.', Colors.lightGreenAccent),
@@ -129,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               historico(Colors.lightGreen),
               limpar('AC', Colors.lightGreen),
@@ -137,9 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
               operacao('=', Colors.lightGreen),
             ],
           ),
-          SizedBox(
-            height: 10.0,
-          )
+
         ],
       ),
     );
