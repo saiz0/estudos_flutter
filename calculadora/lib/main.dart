@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
 }
 
 final input = TextEditingController();
+final List<String> listHistorico = <String>[];
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -22,6 +23,36 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+// user defined function
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("Historico"),
+          content: Container(
+            width: double.maxFinite,
+            height: 300.0,
+            child: ListView(
+              padding: EdgeInsets.all(8.0),
+              children: listHistorico.map((data) => Text(data)).toList(),
+            ),
+          ),
+
+          actions: <Widget>[
+           new FlatButton(
+              child: new Text("Fechar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -36,8 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     hintStyle: TextStyle(
                       fontSize: 30,
                     )),
-                style: TextStyle(
-                  fontSize: 40),
+                style: TextStyle(fontSize: 40),
                 textAlign: TextAlign.right,
                 controller: input,
                 onTap: () =>
@@ -61,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               botao(
                 '/',
-                Colors.green,
+                Colors.lightGreen,
               ),
             ],
           ),
@@ -73,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
               botao('6', Colors.lightGreenAccent),
               botao(
                 '*',
-                Colors.green,
+                Colors.lightGreen,
               ),
             ],
           ),
@@ -85,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
               botao('3', Colors.lightGreenAccent),
               botao(
                 '-',
-                Colors.green,
+                Colors.lightGreen,
               ),
             ],
           ),
@@ -95,15 +125,16 @@ class _MyHomePageState extends State<MyHomePage> {
               botao('', Colors.lightGreenAccent),
               botao('.', Colors.lightGreenAccent),
               botao('0', Colors.lightGreenAccent),
-              botao('+', Colors.green),
+              botao('+', Colors.lightGreen),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              limpar('AC', Colors.green),
-              apagar(Colors.green),
-              operacao('=', Colors.green),
+              historico(Colors.lightGreen),
+              limpar('AC', Colors.lightGreen),
+              apagar(Colors.lightGreen),
+              operacao('=', Colors.lightGreen),
             ],
           ),
           SizedBox(
@@ -147,6 +178,21 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget historico(Color cor) {
+    return Container(
+      padding: EdgeInsets.only(bottom: 10.0),
+      child: FlatButton(
+        child: Icon(Icons.history, size: 35, color: Colors.blueGrey),
+        onPressed: () {
+          _showDialog();
+        },
+        color: cor,
+        padding: EdgeInsets.all(18.0),
+        splashColor: Colors.white,
+      ),
+    );
+  }
+
   Widget limpar(String texto, Color cor) {
     return Container(
       padding: EdgeInsets.only(bottom: 10.0),
@@ -181,6 +227,8 @@ class _MyHomePageState extends State<MyHomePage> {
             Expression exp = p.parse(input.text);
             ContextModel cm = new ContextModel();
             input.text = exp.evaluate(EvaluationType.REAL, cm).toString();
+            listHistorico.add(exp.toString()+" = " +exp.evaluate(EvaluationType.REAL, cm).toString());
+
           });
         },
         color: cor,
