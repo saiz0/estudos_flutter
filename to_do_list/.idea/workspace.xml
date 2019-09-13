@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8f519633-8543-4641-8d53-f36402035e92" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-    </list>
+    <list default="true" id="8f519633-8543-4641-8d53-f36402035e92" name="Default Changelist" comment="Inicial" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -24,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="93" column="2" selection-start-line="93" selection-start-column="2" selection-end-line="93" selection-end-column="2" />
+            <state relative-caret-position="357">
+              <caret line="74" column="28" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="28" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -101,6 +98,14 @@
       <option name="presentableId" value="Default" />
       <updated>1568340574287</updated>
     </task>
+    <task id="LOCAL-00001" summary="Inicial">
+      <created>1568388020913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568388020913</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -134,6 +139,10 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Inicial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicial" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://D:/flutter/packages/flutter/lib/src/widgets/framework.dart">
       <provider selected="true" editor-type-id="text-editor">
@@ -158,8 +167,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="93" column="2" selection-start-line="93" selection-start-column="2" selection-end-line="93" selection-end-column="2" />
+        <state relative-caret-position="357">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="28" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
