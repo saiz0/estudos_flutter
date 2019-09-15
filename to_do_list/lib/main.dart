@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_slidable_list_view/flutter_slidable_list_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -50,21 +51,34 @@ class _MyHomePageState extends State<MyHomePage> {
             child: new ListView.builder(
                 itemCount: lista.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return new Card(
-                    child: new Container(
-                      padding: new EdgeInsets.all(10.0),
-                      child: new Column(
-                        children: <Widget>[
-                          new CheckboxListTile(
-                              value: lista[index].status,
-                              title: new Text(lista[index].titulo),
-                              controlAffinity: ListTileControlAffinity.leading,
-                              onChanged: (bool _status) {
-                                status(_status, index);
-                              },
-                          ),
-                        ],
-                      ),
+                  final item = lista[index].titulo;
+                  return Dismissible(
+                    key: Key(item),
+                    direction: DismissDirection.endToStart,
+                    onDismissed: (direction) {
+                      setState(() {
+                        lista.removeAt(index);
+                      });
+                      Scaffold.of(context)
+                          .showSnackBar(SnackBar(content: Text("Item: $item Excluido")));
+                    },
+                    background: new Container(
+                        padding: EdgeInsets.only(right: 20.0),
+                        color: Colors.red,
+                        child: new Align(
+                          alignment: Alignment.centerRight,
+                          child: new Text('Deletar',
+                              textAlign: TextAlign.right,
+                              style: new TextStyle(color: Colors.white)),
+                        )),
+                    child:
+                    new CheckboxListTile(
+                      value: lista[index].status,
+                      title: new Text(lista[index].titulo),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      onChanged: (bool _status) {
+                        status(_status, index);
+                      },
                     ),
                   );
                 }),
